@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - World 1
+  - World 2
   layers:
   - Default
   - TransparentFX
