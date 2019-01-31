@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickUp : MonoBehaviour
 {
@@ -19,5 +20,7 @@ public class PickUp : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         this.gameObject.SetActive(false);
+        SceneManager.LoadScene("Prototype");
+
     }
 }
