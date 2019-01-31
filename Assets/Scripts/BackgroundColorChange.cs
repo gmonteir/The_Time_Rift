@@ -8,6 +8,7 @@ public class BackgroundColorChange : MonoBehaviour
     public static BackgroundColorChange instance;
     public Color color1;
     public Color color2;
+    public Color color3;
     private SpriteRenderer background;
 
     void Awake()
@@ -29,5 +30,10 @@ public class BackgroundColorChange : MonoBehaviour
     public void World2Color()
     {
         background.color = color2;
+    }
+
+    public void World3Color()
+    {
+        background.color = color3;
     }
 }
