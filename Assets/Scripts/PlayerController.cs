@@ -9,17 +9,21 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
     private float moveVelocity;
+    public static bool seed;
+    public static bool plant;
     //private bool grounded = true;
     // Start is called before the first frame update
     void Start()
     {
         isJumping = false;
+        seed = false;
+        plant = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
         {
             if (!isJumping)
             {
@@ -39,10 +43,25 @@ public class PlayerController : MonoBehaviour
             moveVelocity = speed;
         }
         GetComponent<Rigidbody>().velocity = new Vector3(moveVelocity, GetComponent<Rigidbody>().velocity.y, 0);
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            plant = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         isJumping = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+            seed = true;
+        }
+
     }
 }
