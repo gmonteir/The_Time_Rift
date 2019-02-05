@@ -55,12 +55,16 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Seed"))
         {
             other.gameObject.SetActive(false);
             seed = true;
+        }
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
         }
 
     }

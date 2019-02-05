@@ -9,6 +9,7 @@ TagManager:
   - World 3
   - Tree
   - Pickup
+  - Seed
   layers:
   - Default
   - TransparentFX
