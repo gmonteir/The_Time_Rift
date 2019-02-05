@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
-    public float jump = 10;
+    public float jump = 20;
 
     private bool isJumping;
     private float moveVelocity;
+    public float threshold = 15.0f;
+    public float downward = 20.0f;
     public static bool seed;
     public static bool plant;
     //private bool grounded = true;
@@ -47,6 +49,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             plant = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if ((GetComponent<Rigidbody>().velocity.y) < threshold)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, -downward, 0);
         }
     }
 

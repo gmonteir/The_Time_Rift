@@ -77,15 +77,6 @@ public class GameController : MonoBehaviour
 
     private void World2Active()
     {
-        
-        for (int i = 0; i < World2GameObjects.Length; i++)
-        {
-            World2GameObjects[i].SetActive(true);
-        }
-    }
-
-    private void World2Deactive()
-    {
         for (int i = 0; i < World2GameObjects.Length; i++)
         {
             if (World2GameObjects[i] == tree)
@@ -93,13 +84,22 @@ public class GameController : MonoBehaviour
                 if (PlayerController.plant == true && PlayerController.seed == true)
                 {
                     World2GameObjects[i].SetActive(true);
-                    tree.transform.Translate(GameObject.Find("Player").transform.position.x + 2, 3, 0);
+                    tree.transform.Translate(GameObject.Find("Player").transform.position.x + 7, 16, 0);
                 }
             }
             else
             {
                 World2GameObjects[i].SetActive(true);
             }
+        }
+
+    }
+
+    private void World2Deactive()
+    {
+        for (int i = 0; i < World2GameObjects.Length; i++)
+        {
+            World2GameObjects[i].SetActive(false);
         }
     }
 
