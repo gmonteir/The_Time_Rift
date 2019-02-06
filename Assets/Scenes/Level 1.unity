@@ -220,6 +220,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 272911632}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &162506376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162506375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78997cc79f304ef6b6a1fe13fd45eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  shotSpawn: {fileID: 930026611}
+  fireRate: 0
 --- !u!1001 &272911632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 914257712201649927, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.2
+      value: -5.034
       objectReference: {fileID: 0}
     - target: {fileID: 914257712201649927, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
@@ -295,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 914257712201649927, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 4.932
       objectReference: {fileID: 0}
     - target: {fileID: 914257713841212975, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
@@ -305,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 914257712201649925, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
       propertyPath: jump
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 914257712201649925, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
@@ -315,10 +330,36 @@ PrefabInstance:
     - target: {fileID: 914257712201649925, guid: f820957b6ba064197adc565ef2d38c27,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914257712201649926, guid: f820957b6ba064197adc565ef2d38c27,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 914257712201649926, guid: f820957b6ba064197adc565ef2d38c27,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914257712201649926, guid: f820957b6ba064197adc565ef2d38c27,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914257712201649926, guid: f820957b6ba064197adc565ef2d38c27,
+        type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f820957b6ba064197adc565ef2d38c27, type: 3}
+--- !u!4 &272911633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 914257712201649927, guid: f820957b6ba064197adc565ef2d38c27,
+    type: 3}
+  m_PrefabInstance: {fileID: 272911632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &275307988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4959646025302354038, guid: 2ed983eb6102b41fea023dd1dae4b909,
@@ -973,6 +1014,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930026610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930026611}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &930026611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930026610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.04, y: 0.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 272911633}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &987158719
 PrefabInstance:
