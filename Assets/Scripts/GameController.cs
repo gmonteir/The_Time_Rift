@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
     private  GameObject[] World1GameObjects;
+    private  GameObject[] World1EnemyObjects;
     private  GameObject[] World2GameObjects;
     private  GameObject[] World3GameObjects;
     public float timeTravelRate;
@@ -15,6 +17,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         World1GameObjects = GameObject.FindGameObjectsWithTag("World 1");
+        World1EnemyObjects = GameObject.FindGameObjectsWithTag("EnWrld1");
+        World1GameObjects = World1GameObjects.Concat(World1EnemyObjects).ToArray();
         World2GameObjects = GameObject.FindGameObjectsWithTag("World 2");
         World3GameObjects = GameObject.FindGameObjectsWithTag("World 3");
         tree = GameObject.Find("Tree");

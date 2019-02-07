@@ -23,7 +23,8 @@ public class Enemy_AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+        if (Vector3.Distance(transform.position, Player.position) >= MinDist && 
+            Vector3.Distance(transform.position, Player.position) <= MaxDist)
         {
             if (transform.position.x < Player.position.x)
             {
@@ -36,7 +37,7 @@ public class Enemy_AI : MonoBehaviour
         }
         else
         {
-            if (Time.time > total_fire_time)
+            if (Time.time > total_fire_time && shotSpawn != null && bullet != null)
             {
                 total_fire_time = Time.time + fireRate;
                 Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);

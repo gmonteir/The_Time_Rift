@@ -10,6 +10,9 @@ TagManager:
   - Tree
   - Pickup
   - Seed
+  - Bullet
+  - Enemy
+  - EnWrld1
   layers:
   - Default
   - TransparentFX

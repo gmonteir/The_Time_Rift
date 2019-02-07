@@ -27,12 +27,16 @@ public class Death : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(collision.gameObject);
-            if (this.gameObject.name == "Enemy")
+            if (this.gameObject.name == "Dinosaur")
             {
                 this.GetComponent<Enemy_AI>().enabled = false;
             }
             StartCoroutine(Death_Time());
             
+        }
+        if (collision.gameObject.tag == "EnWrld1")
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }
