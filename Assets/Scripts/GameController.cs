@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public float timeTravelRate;
     private float timeDelay;
     private GameObject tree;
+    public static bool world1;
+    private bool planted;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class GameController : MonoBehaviour
         World2GameObjects = GameObject.FindGameObjectsWithTag("World 2");
         World3GameObjects = GameObject.FindGameObjectsWithTag("World 3");
         tree = GameObject.Find("Tree");
+        planted = false;
         World1Active();
         World2Deactive();
         World3Deactive();
@@ -70,6 +73,7 @@ public class GameController : MonoBehaviour
 
     private void World1Active()
     {
+        world1 = true;
         for (int i = 0; i < World1GameObjects.Length; i++)
         {
             World1GameObjects[i].SetActive(true);
@@ -78,6 +82,7 @@ public class GameController : MonoBehaviour
 
     private void World1Deactive()
     {
+        world1 = false;
         for (int i = 0; i < World1GameObjects.Length; i++)
         {
             World1GameObjects[i].SetActive(false);
@@ -93,7 +98,11 @@ public class GameController : MonoBehaviour
                 if (PlayerController.plant == true && PlayerController.seed == true)
                 {
                     World2GameObjects[i].SetActive(true);
-                    tree.transform.Translate(GameObject.Find("Player").transform.position.x + 7, 16, 0);
+                    if(planted == false)
+                    {
+                        tree.transform.Translate(GameObject.Find("Player").transform.position.x + 7, 16, 0);
+                    }
+                    planted = true;
                 }
             }
             else
