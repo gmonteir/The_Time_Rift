@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     private  GameObject[] World1GameObjects;
     private  GameObject[] World1EnemyObjects;
+    private  GameObject[] World1PickupObjects;
     private  GameObject[] World2GameObjects;
     private  GameObject[] World3GameObjects;
     public float timeTravelRate;
@@ -18,7 +19,9 @@ public class GameController : MonoBehaviour
     {
         World1GameObjects = GameObject.FindGameObjectsWithTag("World 1");
         World1EnemyObjects = GameObject.FindGameObjectsWithTag("EnWrld1");
+        World1PickupObjects = GameObject.FindGameObjectsWithTag("PUWrld1");
         World1GameObjects = World1GameObjects.Concat(World1EnemyObjects).ToArray();
+        World1GameObjects = World1GameObjects.Concat(World1PickupObjects).ToArray();
         World2GameObjects = GameObject.FindGameObjectsWithTag("World 2");
         World3GameObjects = GameObject.FindGameObjectsWithTag("World 3");
         tree = GameObject.Find("Tree");
@@ -49,6 +52,7 @@ public class GameController : MonoBehaviour
                 BackgroundColorChange.instance.World2Color();
                 timeDelay = Time.time + timeTravelRate;
             }
+            /*
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 World3Active();
@@ -57,6 +61,7 @@ public class GameController : MonoBehaviour
                 BackgroundColorChange.instance.World3Color();
                 timeDelay = Time.time + timeTravelRate;
             }
+            */
             
         }
         

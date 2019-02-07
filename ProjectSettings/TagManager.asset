@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - Enemy
   - EnWrld1
+  - PUWrld1
   layers:
   - Default
   - TransparentFX

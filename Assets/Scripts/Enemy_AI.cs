@@ -11,6 +11,7 @@ public class Enemy_AI : MonoBehaviour
     public int MinDist = 5;
     public GameObject bullet;
     public Transform shotSpawn;
+    public float offset;
 
     public float fireRate;
     private float total_fire_time;
@@ -26,10 +27,12 @@ public class Enemy_AI : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.position) >= MinDist && 
             Vector3.Distance(transform.position, Player.position) <= MaxDist)
         {
-            if (transform.position.x < Player.position.x)
+            //enemy move right
+            if (transform.position.x < (Player.position.x - offset))
             {
                 transform.position = new Vector3(transform.position.x + (MoveSpeed * Time.deltaTime), transform.position.y, transform.position.z);
             }
+            //enemeny move left
             else
             {
                 transform.position = new Vector3(transform.position.x + (-MoveSpeed * Time.deltaTime), transform.position.y, transform.position.z);

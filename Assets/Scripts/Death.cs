@@ -34,7 +34,7 @@ public class Death : MonoBehaviour
             StartCoroutine(Death_Time());
             
         }
-        if (collision.gameObject.tag == "EnWrld1")
+        if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")
         {
             this.gameObject.SetActive(false);
         }

@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             seed = true;
         }
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("PUWrld1"))
         {
             other.gameObject.SetActive(false);
         }
