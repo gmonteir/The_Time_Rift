@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Death : MonoBehaviour
     IEnumerator Death_Time()
     {
         yield return new WaitForSeconds(2);
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame
@@ -37,6 +38,8 @@ public class Death : MonoBehaviour
         if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")
         {
             this.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
         }
     }
 }

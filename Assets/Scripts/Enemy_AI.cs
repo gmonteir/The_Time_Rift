@@ -28,7 +28,7 @@ public class Enemy_AI : MonoBehaviour
             Vector3.Distance(transform.position, Player.position) <= MaxDist)
         {
             //enemy move right
-            if (transform.position.x < (Player.position.x - offset))
+            if (transform.position.x < (Player.position.x))
             {
                 transform.position = new Vector3(transform.position.x + (MoveSpeed * Time.deltaTime), transform.position.y, transform.position.z);
             }

@@ -20,9 +20,9 @@ public class GameController : MonoBehaviour
     void Start()
     {
         World1GameObjects = GameObject.FindGameObjectsWithTag("World 1");
-        World1EnemyObjects = GameObject.FindGameObjectsWithTag("EnWrld1");
+        //World1EnemyObjects = GameObject.FindGameObjectsWithTag("EnWrld1");
         World1PickupObjects = GameObject.FindGameObjectsWithTag("PUWrld1");
-        World1GameObjects = World1GameObjects.Concat(World1EnemyObjects).ToArray();
+        //World1GameObjects = World1GameObjects.Concat(World1EnemyObjects).ToArray();
         World1GameObjects = World1GameObjects.Concat(World1PickupObjects).ToArray();
         World2GameObjects = GameObject.FindGameObjectsWithTag("World 2");
         World3GameObjects = GameObject.FindGameObjectsWithTag("World 3");
