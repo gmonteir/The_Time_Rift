@@ -63,7 +63,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isJumping = false;
+        if (collision.gameObject.name == "Tree")
+        {
+            isJumping = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,6 +80,10 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (other.gameObject.CompareTag("Jumpable"))
+        {
+            isJumping = false;
         }
 
     }
