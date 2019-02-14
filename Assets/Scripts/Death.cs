@@ -23,6 +23,26 @@ public class Death : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    { 
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+            if (this.gameObject.name == "Dinosaur")
+            {
+                this.GetComponent<Enemy_AI>().enabled = false;
+            }
+            StartCoroutine(Death_Time());
+
+        }
+        if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")
+        {
+            this.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+    }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -42,4 +62,5 @@ public class Death : MonoBehaviour
             
         }
     }
+    */
 }
