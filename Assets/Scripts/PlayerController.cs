@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PrototypePlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
     public float jump = 20;
