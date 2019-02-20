@@ -6,10 +6,10 @@ public class left_bullet_movement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed;
-    private Rigidbody bullet;
+    private Rigidbody2D bullet;
     void Start()
     {
-        bullet = GetComponent<Rigidbody>();
+        bullet = GetComponent<Rigidbody2D>();
         bullet.velocity = new Vector3(-speed, 0, 0);
     }
 
