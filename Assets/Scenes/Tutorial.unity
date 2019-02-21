@@ -298,7 +298,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1033394327}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -356,10 +356,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -25
-  runSpeed: 8
+  runSpeed: 10
   groundDamping: 20
   inAirDamping: 5
-  jumpHeight: 3
+  jumpHeight: 6
 --- !u!61 &1033394324
 BoxCollider2D:
   m_ObjectHideFlags: 0
