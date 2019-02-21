@@ -298,7 +298,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 4077087150676327627}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -68893,5 +68893,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4077087151572345945, guid: c2bc794c479e62e4599336c959d37e68,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077087151572345945, guid: c2bc794c479e62e4599336c959d37e68,
+        type: 3}
+      propertyPath: runSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2bc794c479e62e4599336c959d37e68, type: 3}
+--- !u!4 &4077087150676327627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4077087151572345949, guid: c2bc794c479e62e4599336c959d37e68,
+    type: 3}
+  m_PrefabInstance: {fileID: 4077087150676327626}
+  m_PrefabAsset: {fileID: 0}
