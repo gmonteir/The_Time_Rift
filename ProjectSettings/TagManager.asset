@@ -16,6 +16,7 @@ TagManager:
   - PUWrld1
   - Jumpable
   - Trigger
+  - Egg
   layers:
   - Default
   - TransparentFX

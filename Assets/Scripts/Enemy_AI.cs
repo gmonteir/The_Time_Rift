@@ -41,7 +41,6 @@ public class Enemy_AI : MonoBehaviour
                     lTemp.x *= -1;
                     transform.localScale = lTemp;
                 }
-                //transform.localScale *= -1; 
             }
             //enemy move left
             else
@@ -61,5 +60,15 @@ public class Enemy_AI : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
         } 
+    }
+
+    //If enemy gets shot by player's bullet 
+    void OnTriggerEnter2D(Collider2D collision)
+    { 
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            this.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
+        }
     }
 }

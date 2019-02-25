@@ -15,8 +15,9 @@ public class Tutorial : MonoBehaviour
     public Text jumpText;
     public Text shootText; 
     public GameObject jumpTextTrigger;
-    public GameObject shootTextTrigger; 
-
+    public GameObject shootTextTrigger;
+    public Sprite newSprite;
+    public SpriteRenderer rend; 
 
     [HideInInspector]
     private bool jumpTextSeen = false;
@@ -62,7 +63,6 @@ public class Tutorial : MonoBehaviour
     }
 
     #endregion
-
 
     // the Update loop contains a very simple example of moving the character around and controlling the animation
     void Update()
@@ -137,6 +137,16 @@ public class Tutorial : MonoBehaviour
         {
             shootTextSeen = true;
             shootText.enabled = false;
+        }
+    }
+
+    //Player collects the egg 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Egg")
+        {
+            collision.gameObject.SetActive(false);
+            rend.sprite = newSprite;
         }
     }
 }

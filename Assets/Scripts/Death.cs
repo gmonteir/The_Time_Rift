@@ -23,31 +23,16 @@ public class Death : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Bullet")
-        {
-            Debug.Log("collid with bullet");
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("here");
+        //If the player gets shot by an enemy bullet 
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("hit by bullet"); 
-            Destroy(collision.gameObject);
-            if (this.gameObject.name == "Dinosaur")
-            {
-                this.GetComponent<Enemy_AI>().enabled = false;
-            }
-            StartCoroutine(Death_Time());
-
-        }
-        if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")
-        {
             this.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         }
