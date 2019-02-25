@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Prime31;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -147,6 +148,15 @@ public class Tutorial : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             rend.sprite = newSprite;
+            StartCoroutine(wait()); 
         }
+    }
+
+    //Wait to transition levels
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Jurassic", LoadSceneMode.Additive);
+
     }
 }

@@ -17,6 +17,7 @@ TagManager:
   - Jumpable
   - Trigger
   - Egg
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
