@@ -15,6 +15,7 @@ TagManager:
   - EnWrld1
   - PUWrld1
   - Jumpable
+  - Trigger
   layers:
   - Default
   - TransparentFX

@@ -114,12 +114,13 @@ public class CharacterController2D : MonoBehaviour
 	/// </summary>
 	/// <value>The jumping threshold.</value>
 	public float jumpingThreshold = 0.07f;
+  
 
 
-	/// <summary>
-	/// curve for multiplying speed based on slope (negative = down slope and positive = up slope)
-	/// </summary>
-	public AnimationCurve slopeSpeedMultiplier = new AnimationCurve( new Keyframe( -90f, 1.5f ), new Keyframe( 0f, 1f ), new Keyframe( 90f, 0f ) );
+        /// <summary>
+        /// curve for multiplying speed based on slope (negative = down slope and positive = up slope)
+        /// </summary>
+        public AnimationCurve slopeSpeedMultiplier = new AnimationCurve( new Keyframe( -90f, 1.5f ), new Keyframe( 0f, 1f ), new Keyframe( 90f, 0f ) );
 
 	[Range( 2, 20 )]
 	public int totalHorizontalRays = 8;
@@ -140,7 +141,6 @@ public class CharacterController2D : MonoBehaviour
 	public BoxCollider2D boxCollider;
 	[HideInInspector][NonSerialized]
 	public Rigidbody2D rigidBody2D;
-
 	[HideInInspector][NonSerialized]
 	public CharacterCollisionState2D collisionState = new CharacterCollisionState2D();
 	[HideInInspector][NonSerialized]
@@ -201,8 +201,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
-	public void OnTriggerEnter2D( Collider2D col )
+        public void OnTriggerEnter2D( Collider2D col )
 	{
 		if( onTriggerEnterEvent != null )
 			onTriggerEnterEvent( col );

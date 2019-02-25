@@ -23,11 +23,20 @@ public class Death : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("collid with bullet");
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("here");
+        Debug.Log("here");
         if (collision.gameObject.tag == "Bullet")
         {
+            Debug.Log("hit by bullet"); 
             Destroy(collision.gameObject);
             if (this.gameObject.name == "Dinosaur")
             {
