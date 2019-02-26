@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using Prime31;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -11,14 +13,20 @@ public class Tutorial : MonoBehaviour
     public float groundDamping = 20f; // how fast do we change direction? higher means faster
     public float inAirDamping = 5f;
     public float jumpHeight = 3f;
+    public Text jumpText;
+    public Text shootText; 
+    public GameObject jumpTextTrigger;
+    public GameObject shootTextTrigger;
+    public Sprite newSprite;
+    public SpriteRenderer rend; 
 
     [HideInInspector]
-    private float normalizedHorizontalSpeed = 0;
-
+    private bool jumpTextSeen = false;
+    private bool shootTextSeen = false; 
+    private float normalizedHorizontalSpeed = 0; 
     private CharacterController2D _controller;
     private RaycastHit2D _lastControllerColliderHit;
     private Vector3 _velocity;
-
 
     void Awake()
     {
@@ -56,7 +64,6 @@ public class Tutorial : MonoBehaviour
     }
 
     #endregion
-
 
     // the Update loop contains a very simple example of moving the character around and controlling the animation
     void Update()
@@ -108,5 +115,48 @@ public class Tutorial : MonoBehaviour
 
         // grab our current _velocity to use as a base for all calculations
         _velocity = _controller.velocity;
+
+        float distance = Vector3.Distance(this.transform.position, jumpTextTrigger.transform.position);
+        if (distance < 30 && distance > 7 && !jumpTextSeen)
+        {
+            jumpText.enabled = true;
+            jumpText.text = "\nUse '←' and '→' arrow keys to move. \nUse '↑' arrow key to jump";
+        }
+        else if (distance > 34)
+        {
+            jumpTextSeen = true;
+            jumpText.enabled = false;
+        }
+
+        distance = Vector3.Distance(this.transform.position, shootTextTrigger.transform.position);
+        if (distance < 30 && distance > 7 && !shootTextSeen)
+        {
+            shootText.enabled = true;
+            shootText.text = "\nUse spacebar to shoot enemies";
+        }
+        else if (distance < 7)
+        {
+            shootTextSeen = true;
+            shootText.enabled = false;
+        }
+    }
+
+    //Player collects the egg 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Egg")
+        {
+            collision.gameObject.SetActive(false);
+            rend.sprite = newSprite;
+            StartCoroutine(wait()); 
+        }
+    }
+
+    //Wait to transition levels
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Jurassic", LoadSceneMode.Additive);
+
     }
 }
