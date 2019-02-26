@@ -15,6 +15,9 @@ TagManager:
   - EnWrld1
   - PUWrld1
   - Jumpable
+  - Trigger
+  - Egg
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
