@@ -148,7 +148,7 @@ public class Tutorial : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             rend.sprite = newSprite;
-            StartCoroutine(wait()); 
+            //StartCoroutine(wait()); 
         }
     }
 
