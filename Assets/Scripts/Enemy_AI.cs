@@ -53,13 +53,19 @@ public class Enemy_AI : MonoBehaviour
                     transform.localScale = lTemp;
                 }
             }
+
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
+            }
         }
         /****Amy*****/
-        if (Time.time > nextFire)
+       /* if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
-        } 
+        } */ 
     }
 
     //If enemy gets shot by player's bullet 
