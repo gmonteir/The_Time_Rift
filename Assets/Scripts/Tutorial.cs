@@ -76,13 +76,13 @@ public class Tutorial : MonoBehaviour
         if (_controller.isGrounded)
             _velocity.y = 0;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.D))
         {
             normalizedHorizontalSpeed = 1;
             if (transform.localScale.x < 0f)
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) | Input.GetKey(KeyCode.A))
         {
             normalizedHorizontalSpeed = -1;
             if (transform.localScale.x > 0f)
@@ -95,7 +95,7 @@ public class Tutorial : MonoBehaviour
 
 
         // we can only jump whilst grounded
-        if (_controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        if (_controller.isGrounded && (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown(KeyCode.W)))
         {
             _velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
         }
