@@ -27,6 +27,7 @@ public class Tutorial : MonoBehaviour
     private CharacterController2D _controller;
     private RaycastHit2D _lastControllerColliderHit;
     private Vector3 _velocity;
+    private Animator anim; 
 
     void Awake()
     {
@@ -38,6 +39,10 @@ public class Tutorial : MonoBehaviour
         _controller.onTriggerExitEvent += onTriggerExitEvent;
     }
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>(); 
+    }
 
     #region Event Listeners
 
@@ -147,7 +152,8 @@ public class Tutorial : MonoBehaviour
         if(collision.gameObject.tag == "Egg")
         {
             collision.gameObject.SetActive(false);
-            rend.sprite = newSprite;
+            anim.SetTrigger("NewIdle");
+            //rend.sprite = newSprite;
             //StartCoroutine(wait()); 
         }
     }

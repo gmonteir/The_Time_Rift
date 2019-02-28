@@ -7,7 +7,7 @@ public class Enemy_AI : MonoBehaviour
     public Transform Player;
     public int MoveSpeed = 4;
     public int MaxDist = 10;
-    public int MinDist = 5;
+    public int MinDist = 7;
     public GameObject bullet;
     public Transform shotSpawn;
     public float bulletSpeed;
@@ -17,11 +17,13 @@ public class Enemy_AI : MonoBehaviour
 
 
     private float total_fire_time;
-    private Rigidbody2D rbb; 
+    private Rigidbody2D rbb;
+    private Animator anim; 
 
     void Start()
     {
-        rbb = bullet.GetComponent<Rigidbody2D>(); 
+        rbb = bullet.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -57,15 +59,11 @@ public class Enemy_AI : MonoBehaviour
             if (Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
+                StartCoroutine(wait());
+                anim.SetTrigger("Shoot"); 
                 Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
             }
         }
-        /****Amy*****/
-       /* if (Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
-        } */ 
     }
 
     //If enemy gets shot by player's bullet 
@@ -76,5 +74,10 @@ public class Enemy_AI : MonoBehaviour
             this.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.5f); 
     }
 }
