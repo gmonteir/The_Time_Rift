@@ -15,18 +15,18 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("up"))
+        if(Input.GetKeyDown("up") | Input.GetKeyDown(KeyCode.W)) 
         {
             anim.SetTrigger("Jump"); 
         }
 
-        if (Input.GetKey("right") || Input.GetKey("left")) 
+        if (Input.GetKey("right") || Input.GetKey("left") || Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.D))
         {
             anim.SetTrigger("Walk"); 
           
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") | Input.GetKeyDown(KeyCode.F)) 
         {
             anim.SetTrigger("Shoot");
         }
