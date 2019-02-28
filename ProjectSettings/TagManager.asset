@@ -18,6 +18,8 @@ TagManager:
   - Trigger
   - Egg
   - PlayerBullet
+  - Boss_Egg
+  - Boss_1
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - Platforms
   - Player
   - Hazards
-  - 
+  - Boss Layer
   - 
   - 
   - 
@@ -60,4 +62,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2675080389
+    locked: 0
+  - name: Boss Layer
+    uniqueID: 321060807
     locked: 0

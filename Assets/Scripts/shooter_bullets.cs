@@ -30,7 +30,7 @@ public class shooter_bullets : MonoBehaviour
             facing_Right = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && Time.time > fire)
+        if ((Input.GetKeyDown(KeyCode.F) | Input.GetKeyDown(KeyCode.Space)) && Time.time > fire)
         {
             if (facing_Right)
             {
