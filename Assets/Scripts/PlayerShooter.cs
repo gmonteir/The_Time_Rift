@@ -18,7 +18,7 @@ public class PlayerShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") | Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(wait()); 
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
