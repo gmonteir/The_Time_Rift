@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
+
+    private Animator anim; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>(); 
     }
 
     IEnumerator Death_Time()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         Destroy(this.gameObject);
     }
 
@@ -28,7 +30,9 @@ public class Death : MonoBehaviour
         //If the player gets shot by an enemy bullet 
         if (collision.gameObject.tag == "Bullet")
         {
-            this.gameObject.SetActive(false);
+            anim.SetTrigger("Dead");
+            StartCoroutine(Death_Time()); 
+            //this.gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (collision.gameObject.tag == "EnWrld1" | collision.gameObject.tag == "Enemy")

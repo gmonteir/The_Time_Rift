@@ -20,8 +20,15 @@ public class PlayerShooter : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
+            StartCoroutine(wait()); 
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
 
         }
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+
     }
 }
