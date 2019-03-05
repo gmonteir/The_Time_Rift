@@ -20,6 +20,10 @@ TagManager:
   - PlayerBullet
   - Boss_Egg
   - Boss_1
+  - World1
+  - World2
+  - Background1
+  - Background2
   layers:
   - Default
   - TransparentFX
