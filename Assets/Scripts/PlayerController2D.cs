@@ -47,7 +47,7 @@ public class PlayerController2D : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().velocity = new Vector3(moveVelocity, GetComponent<Rigidbody2D>().velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.P) && GameController.world1 == true)
+        if (Input.GetKeyDown(KeyCode.P))
         {
             plant = true;
         }
