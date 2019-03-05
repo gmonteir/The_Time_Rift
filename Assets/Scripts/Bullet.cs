@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /**************Amy************/ 
+        /**************Amy************/
         Vector3 lTemp = enemy.transform.localScale;
         if (lTemp.x > 0)
 
@@ -24,5 +24,9 @@ public class Bullet : MonoBehaviour
             rb.velocity = transform.right * speed * -1;
         }
     }
-        /////////////////////////////
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(this.gameObject);
+    }
+    /////////////////////////////
 }

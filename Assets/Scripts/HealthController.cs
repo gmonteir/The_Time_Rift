@@ -44,6 +44,10 @@ public class HealthController : MonoBehaviour
         {
             pb.BarValue -= boss_collision_damage;
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 }
