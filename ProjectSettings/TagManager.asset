@@ -24,6 +24,7 @@ TagManager:
   - World2
   - Background1
   - Background2
+  - Small_Dino_Flying
   layers:
   - Default
   - TransparentFX
