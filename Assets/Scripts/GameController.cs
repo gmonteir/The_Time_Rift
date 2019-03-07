@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     private GameObject world2Back;
     public float timeTravelRate;
     private float timeDelay;
+    private GameObject tree;
+    private GameObject seed;
 
     void Start()
     {
@@ -19,7 +21,9 @@ public class GameController : MonoBehaviour
         world2Tiles = GameObject.FindGameObjectWithTag("World2");
         world1Back = GameObject.FindGameObjectWithTag("Background1");
         world2Back = GameObject.FindGameObjectWithTag("Background2");
-
+        tree = GameObject.Find("Tree");
+        seed = GameObject.Find("Seed");
+        tree.gameObject.SetActive(false);
         World1Active();
     }
 
@@ -47,6 +51,10 @@ public class GameController : MonoBehaviour
     {
         world1Tiles.SetActive(true);
         world1Back.SetActive(true);
+        if (Collect.seed == false)
+        {
+            seed.SetActive(true);
+        }
 
         World2Deactive();
     }
@@ -55,12 +63,18 @@ public class GameController : MonoBehaviour
     {
         world1Tiles.SetActive(false);
         world1Back.SetActive(false);
+        seed.gameObject.SetActive(false);
     }
 
     private void World2Active()
     {
         world2Tiles.SetActive(true);
         world2Back.SetActive(true);
+        if (Collect.plant == true && Collect.seed == true)
+        {
+            tree.SetActive(true);
+            //tree.transform.Translate(GameObject.Find("Player").transform.position.x + 2, 3, 0);
+        }
 
         World1Deactive();
     }
@@ -69,5 +83,6 @@ public class GameController : MonoBehaviour
     {
         world2Tiles.SetActive(false);
         world2Back.SetActive(false);
+        tree.gameObject.SetActive(false);
     }
 }
