@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     private GameObject seed;
     private GameObject egg;
     private bool egg_placed = false;
+    private GameObject world1Text;
+    private GameObject world2Text;
 
     void Start()
     {
@@ -23,6 +25,10 @@ public class GameController : MonoBehaviour
         world2Tiles = GameObject.FindGameObjectWithTag("World2");
         world1Back = GameObject.FindGameObjectWithTag("Background1");
         world2Back = GameObject.FindGameObjectWithTag("Background2");
+        world1Text = GameObject.FindGameObjectWithTag("World 1");
+        world2Text = GameObject.FindGameObjectWithTag("World 2");
+
+        
         tree = GameObject.Find("Tree");
         seed = GameObject.Find("Seed");
         egg = GameObject.Find("Egg");
@@ -60,6 +66,7 @@ public class GameController : MonoBehaviour
     {
         world1Tiles.SetActive(true);
         world1Back.SetActive(true);
+        world1Text.SetActive(true);
         if (Collect.seed == false)
         {
             seed.SetActive(true);
@@ -74,6 +81,7 @@ public class GameController : MonoBehaviour
         world1Tiles.SetActive(false);
         world1Back.SetActive(false);
         seed.gameObject.SetActive(false);
+        world1Text.SetActive(false);
         //if (Collect.plant == true && Collect.egg == true)
         //{
         //    egg.SetActive(false);
@@ -86,6 +94,8 @@ public class GameController : MonoBehaviour
     {
         world2Tiles.SetActive(true);
         world2Back.SetActive(true);
+        world2Text.SetActive(true);
+
         if (Collect.plant == true && Collect.seed == true)
         {
             tree.SetActive(true);
@@ -105,6 +115,7 @@ public class GameController : MonoBehaviour
         world2Tiles.SetActive(false);
         world2Back.SetActive(false);
         tree.gameObject.SetActive(false);
+        world2Text.SetActive(false);
         if (Collect.egg == false)
         {
             egg.SetActive(false);
