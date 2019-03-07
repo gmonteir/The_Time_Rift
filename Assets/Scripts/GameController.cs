@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     private float timeDelay;
     private GameObject tree;
     private GameObject seed;
+    private GameObject egg;
+    private bool egg_placed = false;
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class GameController : MonoBehaviour
         world2Back = GameObject.FindGameObjectWithTag("Background2");
         tree = GameObject.Find("Tree");
         seed = GameObject.Find("Seed");
+        egg = GameObject.Find("Egg");
         tree.gameObject.SetActive(false);
         World1Active();
     }
@@ -45,6 +48,12 @@ public class GameController : MonoBehaviour
                 timeDelay = Time.time + timeTravelRate;
             }
         }
+        if (Collect.plant == true && Collect.egg == true && !egg_placed)
+        {
+            egg.SetActive(true);
+            egg.transform.Translate(GameObject.Find("Player 1 With Shooting").transform.position.x + 2, 0, 0);
+            egg_placed = true;
+        }
     }
 
     private void World1Active()
@@ -56,6 +65,7 @@ public class GameController : MonoBehaviour
             seed.SetActive(true);
         }
 
+
         World2Deactive();
     }
 
@@ -64,6 +74,12 @@ public class GameController : MonoBehaviour
         world1Tiles.SetActive(false);
         world1Back.SetActive(false);
         seed.gameObject.SetActive(false);
+        //if (Collect.plant == true && Collect.egg == true)
+        //{
+        //    egg.SetActive(false);
+
+        //}
+
     }
 
     private void World2Active()
@@ -75,6 +91,11 @@ public class GameController : MonoBehaviour
             tree.SetActive(true);
             //tree.transform.Translate(GameObject.Find("Player").transform.position.x + 2, 3, 0);
         }
+        if (Collect.egg == false)
+        {
+            egg.SetActive(true);
+        }
+
 
         World1Deactive();
     }
@@ -84,5 +105,9 @@ public class GameController : MonoBehaviour
         world2Tiles.SetActive(false);
         world2Back.SetActive(false);
         tree.gameObject.SetActive(false);
+        if (Collect.egg == false)
+        {
+            egg.SetActive(false);
+        }
     }
 }
