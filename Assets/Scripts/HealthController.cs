@@ -9,6 +9,7 @@ public class HealthController : MonoBehaviour
     public int bullet_damage;
     public int egg_damage;
     public int boss_collision_damage;
+    public int small_dino_collision_damage;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class HealthController : MonoBehaviour
         //If the player gets shot by an enemy bullet
         if (collision.gameObject.tag == "Bullet")
         {
+            print("got here");
             pb.BarValue -= bullet_damage;
             Destroy(collision);
         }
@@ -47,6 +49,10 @@ public class HealthController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (collision.gameObject.tag == "Small_Dino_Flying")
+        {
+            pb.BarValue -= small_dino_collision_damage;
         }
     }
 
