@@ -6,11 +6,13 @@ public class Collect : MonoBehaviour
 {
     public static bool seed;
     public static bool plant;
+    public static bool egg;
 
     void Start()
     {
         seed = false;
         plant = false;
+        egg = false;
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Collect : MonoBehaviour
         if (other.gameObject.CompareTag("Egg"))
         {
             other.gameObject.SetActive(false);
+            egg = true;
         }
 
     }
