@@ -18,7 +18,9 @@ public class Tutorial : MonoBehaviour
     public GameObject jumpTextTrigger;
     public GameObject shootTextTrigger;
     public Sprite newSprite;
-    public SpriteRenderer rend; 
+    public SpriteRenderer rend;
+    public GameObject firstPlayer;
+    public GameObject secondPlayer; 
 
     [HideInInspector]
     private bool jumpTextSeen = false;
@@ -27,7 +29,7 @@ public class Tutorial : MonoBehaviour
     private CharacterController2D _controller;
     private RaycastHit2D _lastControllerColliderHit;
     private Vector3 _velocity;
-    //private Animator anim; 
+    private Animator anim; 
 
     void Awake()
     {
@@ -36,12 +38,13 @@ public class Tutorial : MonoBehaviour
         // listen to some events for illustration purposes
         _controller.onControllerCollidedEvent += onControllerCollider;
         _controller.onTriggerEnterEvent += onTriggerEnterEvent;
-        _controller.onTriggerExitEvent += onTriggerExitEvent;
+        _controller.onTriggerExitEvent += onTriggerExitEvent; 
     }
 
     private void Start()
     {
         //anim = GetComponent<Animator>(); 
+
     }
 
     #region Event Listeners
@@ -150,10 +153,13 @@ public class Tutorial : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Sunglasses")
-        {
+        { 
+
             collision.gameObject.SetActive(false);
-            //anim.SetTrigger("NewIdle");
-            rend.sprite = newSprite;
+            Destroy(anim); 
+            firstPlayer.SetActive(false);
+            secondPlayer.SetActive(true);
+            
             //StartCoroutine(wait()); 
         }
     }
