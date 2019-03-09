@@ -146,14 +146,14 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    //Player collects the egg 
+    //Player collects the sunglasses 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Egg")
+        if(collision.gameObject.tag == "Sunglasses")
         {
             collision.gameObject.SetActive(false);
             //anim.SetTrigger("NewIdle");
-            //rend.sprite = newSprite;
+            rend.sprite = newSprite;
             //StartCoroutine(wait()); 
         }
     }

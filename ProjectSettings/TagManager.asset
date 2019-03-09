@@ -25,6 +25,8 @@ TagManager:
   - Background1
   - Background2
   - Small_Dino_Flying
+  - Sunglasses
+  - Bounds
   layers:
   - Default
   - TransparentFX
