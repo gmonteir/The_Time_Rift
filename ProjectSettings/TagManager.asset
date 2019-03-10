@@ -29,6 +29,7 @@ TagManager:
   - Bounds
   - Kill
   - Hazards
+  - Knight
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* @Author: Kevin Graves
+ * 
+ * 
+ */
+
 public class note_controller : MonoBehaviour
 {
     // Start is called before the first frame update

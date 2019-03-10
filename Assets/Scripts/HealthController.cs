@@ -10,6 +10,7 @@ public class HealthController : MonoBehaviour
     public int egg_damage;
     public int boss_collision_damage;
     public int small_dino_collision_damage;
+    public int knight_damage;
     public float hazard_damage;
 
     // Start is called before the first frame update
@@ -55,6 +56,11 @@ public class HealthController : MonoBehaviour
         {
             pb.BarValue -= small_dino_collision_damage;
         }
+        if (collision.gameObject.tag == "Knight")
+        {
+            pb.BarValue -= knight_damage;
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
