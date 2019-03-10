@@ -13,11 +13,7 @@ public class Boss_Egg_Destory : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(this.gameObject);
-        }
-        else
+        if (collision.gameObject.tag != "Bounds")
         {
             Destroy(this.gameObject);
         }

@@ -10,6 +10,7 @@ public class HealthController : MonoBehaviour
     public int egg_damage;
     public int boss_collision_damage;
     public int small_dino_collision_damage;
+    public float hazard_damage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class HealthController : MonoBehaviour
         {
             pb.BarValue -= boss_collision_damage;
         }
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Kill")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -56,4 +57,11 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Hazards")
+        {
+            pb.BarValue -= hazard_damage;
+        }
+    }
 }

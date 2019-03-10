@@ -27,6 +27,8 @@ TagManager:
   - Small_Dino_Flying
   - Sunglasses
   - Bounds
+  - Kill
+  - Hazards
   layers:
   - Default
   - TransparentFX

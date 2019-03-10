@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     private bool egg_placed = false;
     private GameObject world1Text;
     private GameObject world2Text;
+    private bool world1;
+    private bool world2;
 
     void Start()
     {
@@ -41,19 +43,23 @@ public class GameController : MonoBehaviour
     {
         if (Time.time > timeDelay)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                Debug.Log("world1");
-                World1Active();
-                timeDelay = Time.time + timeTravelRate;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                Debug.Log("world2");
-                World2Active();
-                timeDelay = Time.time + timeTravelRate;
+                if (world2)
+                {
+                    Debug.Log("world1");
+                    World1Active();
+                    timeDelay = Time.time + timeTravelRate;
+                }
+                else
+                {
+                    Debug.Log("world2");
+                    World2Active();
+                    timeDelay = Time.time + timeTravelRate;
+                }
             }
         }
+
         if (Collect.plant == true && Collect.egg == true && !egg_placed)
         {
             egg.SetActive(true);
@@ -67,6 +73,7 @@ public class GameController : MonoBehaviour
         world1Tiles.SetActive(true);
         world1Back.SetActive(true);
         world1Text.SetActive(true);
+        world1 = true;
         if (Collect.seed == false)
         {
             seed.SetActive(true);
@@ -82,6 +89,8 @@ public class GameController : MonoBehaviour
         world1Back.SetActive(false);
         seed.gameObject.SetActive(false);
         world1Text.SetActive(false);
+        world1 = false;
+
         //if (Collect.plant == true && Collect.egg == true)
         //{
         //    egg.SetActive(false);
@@ -95,6 +104,7 @@ public class GameController : MonoBehaviour
         world2Tiles.SetActive(true);
         world2Back.SetActive(true);
         world2Text.SetActive(true);
+        world2 = true;
 
         if (Collect.plant == true && Collect.seed == true)
         {
@@ -116,6 +126,8 @@ public class GameController : MonoBehaviour
         world2Back.SetActive(false);
         tree.gameObject.SetActive(false);
         world2Text.SetActive(false);
+        world2 = false;
+
         if (Collect.egg == false)
         {
             egg.SetActive(false);
