@@ -30,6 +30,7 @@ TagManager:
   - Kill
   - Hazards
   - Knight
+  - Sword
   layers:
   - Default
   - TransparentFX
