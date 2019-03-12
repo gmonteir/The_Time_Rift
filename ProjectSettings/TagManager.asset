@@ -32,6 +32,8 @@ TagManager:
   - Knight
   - Sword
   - Heart
+  - Phase 1
+  - Phase 2
   layers:
   - Default
   - TransparentFX
