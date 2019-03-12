@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour
     private GameObject tree;
     private GameObject seed;
     private GameObject egg;
+    private GameObject egg2;
+    private GameObject sword;
+    private GameObject sword2;
+    private GameObject gate;
     private bool egg_placed = false;
     private GameObject world1Text;
     private GameObject world2Text;
@@ -30,11 +34,13 @@ public class GameController : MonoBehaviour
         world1Text = GameObject.FindGameObjectWithTag("World 1");
         world2Text = GameObject.FindGameObjectWithTag("World 2");
 
-        
         tree = GameObject.Find("Tree");
         seed = GameObject.Find("Seed");
         egg = GameObject.Find("Egg");
-        tree.gameObject.SetActive(false);
+        egg2 = GameObject.Find("Egg2");
+        sword = GameObject.Find("Sword");
+        sword2 = GameObject.Find("Sword2");
+        gate = GameObject.Find("Gate");
         World1Active();
     }
 
@@ -60,11 +66,23 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (Collect.plant == true && Collect.egg == true && !egg_placed)
+        //if (Collect.plant == true && Collect.egg == true && !egg_placed)
+        //{
+        //    egg.SetActive(true);
+        //    egg.transform.Translate(GameObject.Find("Player 1 With Shooting").transform.position.x + 2, 0, 0);
+        //    egg_placed = true;
+        //}
+        if (world1 == true && Collect.plant == true && Collect.egg == true)
         {
-            egg.SetActive(true);
-            egg.transform.Translate(GameObject.Find("Player 1 With Shooting").transform.position.x + 2, 0, 0);
-            egg_placed = true;
+            egg2.SetActive(true);
+        }
+        if (world2 == true && Collect.plant == true && Collect.sword == true)
+        {
+            sword2.SetActive(true);
+        }
+        if(Collect.plant == true && Collect.egg == true && Collect.sword == true)
+        {
+            gate.SetActive(false);
         }
     }
 
@@ -78,8 +96,14 @@ public class GameController : MonoBehaviour
         {
             seed.SetActive(true);
         }
-
-
+        if (Collect.sword == false)
+        {
+            sword.SetActive(true);
+        }
+        if (Collect.plant == true && Collect.egg == true)
+        {
+            egg2.SetActive(true);
+        }
         World2Deactive();
     }
 
@@ -88,14 +112,10 @@ public class GameController : MonoBehaviour
         world1Tiles.SetActive(false);
         world1Back.SetActive(false);
         seed.gameObject.SetActive(false);
+        sword.gameObject.SetActive(false);
         world1Text.SetActive(false);
+        egg2.SetActive(false);
         world1 = false;
-
-        //if (Collect.plant == true && Collect.egg == true)
-        //{
-        //    egg.SetActive(false);
-
-        //}
 
     }
 
@@ -115,7 +135,10 @@ public class GameController : MonoBehaviour
         {
             egg.SetActive(true);
         }
-
+        if (Collect.plant == true && Collect.sword == true)
+        {
+            sword2.SetActive(true);
+        }
 
         World1Deactive();
     }
@@ -126,11 +149,8 @@ public class GameController : MonoBehaviour
         world2Back.SetActive(false);
         tree.gameObject.SetActive(false);
         world2Text.SetActive(false);
+        egg.SetActive(false);
+        sword2.SetActive(false);
         world2 = false;
-
-        if (Collect.egg == false)
-        {
-            egg.SetActive(false);
-        }
     }
 }
