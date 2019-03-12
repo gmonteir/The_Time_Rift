@@ -12,6 +12,7 @@ public class HealthController : MonoBehaviour
     public int small_dino_collision_damage;
     public int knight_damage;
     public float hazard_damage;
+    public int heart_healing;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,10 @@ public class HealthController : MonoBehaviour
         if (pb.BarValue <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (pb.BarValue >= 100)
+        {
+            pb.BarValue = 100;
         }
 
     }
@@ -59,6 +64,10 @@ public class HealthController : MonoBehaviour
         if (collision.gameObject.tag == "Knight")
         {
             pb.BarValue -= knight_damage;
+        }
+        if (collision.gameObject.tag == "Heart")
+        {
+            pb.BarValue += heart_healing;
         }
 
     }
