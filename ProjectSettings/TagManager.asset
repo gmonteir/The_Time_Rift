@@ -31,6 +31,7 @@ TagManager:
   - Hazards
   - Knight
   - Sword
+  - Heart
   layers:
   - Default
   - TransparentFX
