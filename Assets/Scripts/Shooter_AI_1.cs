@@ -41,7 +41,8 @@ public class Shooter_AI_1 : MonoBehaviour
     //private Animator anim;
     private bool facingRight = true;
     private float normalizedHorizontalSpeed = 0;
-
+    public int delay = 50;
+    private int curr_delay = 0;
 
     void Awake()
     {
@@ -89,34 +90,51 @@ public class Shooter_AI_1 : MonoBehaviour
             _velocity.y = 0;
 
         if (Vector3.Distance(transform.position, Player.position) >= MinDist && 
-            Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            (Vector3.Distance(transform.position, Player.position) <= MaxDist))
         {
             //enemy move right
+
             if (transform.position.x < (Player.position.x))
             {
-                normalizedHorizontalSpeed = 1;
-                if (transform.localScale.x < 0f)
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                //if enemy facing left, start facing right 
-                if (lTemp.x < 0)
+                if (!facingRight && curr_delay < delay)
                 {
-                    lTemp.x *= -1;
-                    transform.localScale = lTemp;
-                    facingRight = true;
+                    curr_delay++;
+                }
+                else
+                {
+                    normalizedHorizontalSpeed = 1;
+                    if (transform.localScale.x < 0f)
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    //if enemy facing left, start facing right 
+                    if (lTemp.x < 0)
+                    {
+                        lTemp.x *= -1;
+                        transform.localScale = lTemp;
+                        facingRight = true;
+                    }
+                    curr_delay = 0;
                 }
             }
             //enemy move left
             else
             {
-                normalizedHorizontalSpeed = -1;
-                if (transform.localScale.x > 0f)
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                //if enemy facing right, start facing left
-                if (lTemp.x > 0)
+                if (facingRight && curr_delay < delay)
                 {
-                    lTemp.x *= -1;
-                    transform.localScale = lTemp;
-                    facingRight = false;
+                    curr_delay++;
+                }
+                else
+                {
+                    normalizedHorizontalSpeed = -1;
+                    if (transform.localScale.x > 0f)
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    //if enemy facing right, start facing left
+                    if (lTemp.x > 0)
+                    {
+                        lTemp.x *= -1;
+                        transform.localScale = lTemp;
+                        facingRight = false;
+                    }
+                    curr_delay = 0;
                 }
             }
 
