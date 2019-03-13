@@ -47,8 +47,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time > timeDelay)
-        {
+        //if (Time.time > timeDelay)
+        //{
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (world2)
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
                     timeDelay = Time.time + timeTravelRate;
                 }
             }
-        }
+        //}
 
         //if (Collect.plant == true && Collect.egg == true && !egg_placed)
         //{
