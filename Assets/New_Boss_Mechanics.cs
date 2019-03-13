@@ -32,6 +32,7 @@ public class New_Boss_Mechanics : MonoBehaviour
     public float phase3_speed = 1.0f;
     public int phase3_boss_hp = 10;
     public float phase3_transition_speed = 1.0f;
+    public int phase3_drop_rate;
 
 
     private int phase;
@@ -190,6 +191,20 @@ public class New_Boss_Mechanics : MonoBehaviour
                 phase3_start = false;
                 Phase_2_Walls.SetActive(false);
             }
+        }
+        else
+        {
+            count++;
+            if (count >= phase3_drop_rate)
+            {
+                Instantiate(egg, drop_location.position, drop_location.rotation);
+                count = 0;
+            }
+            transform.position = Vector3.Lerp(phase3_pos1, phase3_pos2, (Mathf.Sin(phase3_speed * Time.time) + 1.0f) / 2.0f);
+        }
+        if (phase3_boss_hp <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
