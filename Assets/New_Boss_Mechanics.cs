@@ -81,6 +81,10 @@ public class New_Boss_Mechanics : MonoBehaviour
         {
             phase2_boss_hp -= 1;
         }
+        if (collision.gameObject.tag == "Bullet" && phase == 3)
+        {
+            phase3_boss_hp -= 1;
+        }
 
     }
 
