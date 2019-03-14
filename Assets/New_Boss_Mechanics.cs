@@ -62,7 +62,11 @@ public class New_Boss_Mechanics : MonoBehaviour
             Phase_2();
         if (phase == 3)
             Phase_3();
-        
+        if (phase == 4)
+        {
+            //cutscene code here
+        }
+
 
     }
 
@@ -205,6 +209,7 @@ public class New_Boss_Mechanics : MonoBehaviour
         if (phase3_boss_hp <= 0)
         {
             Destroy(this.gameObject);
+            phase = 4;
         }
     }
 
