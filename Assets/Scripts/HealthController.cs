@@ -67,6 +67,7 @@ public class HealthController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Heart")
         {
+            Debug.Log("here");
             pb.BarValue += heart_healing;
         }
 
