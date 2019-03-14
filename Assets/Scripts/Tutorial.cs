@@ -159,16 +159,7 @@ public class Tutorial : MonoBehaviour
             Destroy(anim); 
             firstPlayer.SetActive(false);
             secondPlayer.SetActive(true);
-            
-            //StartCoroutine(wait()); 
+            SceneManager.LoadScene("Jurassic");  
         }
-    }
-
-    //Wait to transition levels
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Jurassic", LoadSceneMode.Additive);
-
     }
 }
