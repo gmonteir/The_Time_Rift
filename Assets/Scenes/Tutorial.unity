@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 275466559}
   m_Layer: 11
   m_Name: Hole1
-  m_TagString: Enemy
+  m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -770,7 +770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669684705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.8, y: -0.6, z: -10}
+  m_LocalPosition: {x: -14, y: -0.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1355948405}
@@ -1462,7 +1462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033394322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.8, y: -0.6, z: 0}
+  m_LocalPosition: {x: -14, y: -0.6, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 206347659}
@@ -1690,6 +1690,7 @@ MonoBehaviour:
   small_dino_collision_damage: 0
   knight_damage: 0
   hazard_damage: 0
+  heart_healing: 0
 --- !u!1 &1091981652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091981652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.8, y: -0.6, z: -10}
+  m_LocalPosition: {x: -14, y: -0.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61295,7 +61296,7 @@ GameObject:
   - component: {fileID: 1689588897}
   m_Layer: 11
   m_Name: Hole2
-  m_TagString: Enemy
+  m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

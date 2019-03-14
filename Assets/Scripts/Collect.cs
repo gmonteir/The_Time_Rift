@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class Collect : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class Collect : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             sword = true;
+        }
+        if(other.gameObject.CompareTag("End"))
+        {
+            Debug.Log("hi");
+            SceneManager.LoadScene("Jurassic Boss"); 
         }
 
     }

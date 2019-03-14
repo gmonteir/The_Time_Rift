@@ -34,6 +34,7 @@ TagManager:
   - Heart
   - Phase 1
   - Phase 2
+  - End
   layers:
   - Default
   - TransparentFX
