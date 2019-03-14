@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 /* @author: Kevin Graves
  * 
@@ -64,7 +65,7 @@ public class New_Boss_Mechanics : MonoBehaviour
             Phase_3();
         if (phase == 4)
         {
-            //cutscene code here
+            SceneManager.LoadScene("TimeWarpEffect"); 
         }
 
 
